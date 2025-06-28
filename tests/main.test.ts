@@ -2,8 +2,8 @@
 
 // tests/main.test.ts
 
-import type { CodeArray } from "../src/types";
-import { computeClues } from "../src/main";
+import type { CodeArray } from "~/src/types";
+import { computeClues } from "~/src/main";
 
 // --- MOCKING MastermindState ---
 // Since computeClues imports MastermindState (but doesn't use it for the clue computation),

@@ -1,7 +1,6 @@
 // src\main.ts
 
 import type { Clues, CodeArray } from "~/src/types";
-import { MastermindState } from "~/src/state";
 
 /**
  * computeClues(guessArray, secretArray)
@@ -13,7 +12,10 @@ import { MastermindState } from "~/src/state";
  * @param {CodeArray} secretArray
  * @returns {Clues}
  **/
-function computeClues(guessArray: CodeArray, secretArray: CodeArray): Clues {
+export function computeClues(
+  guessArray: CodeArray,
+  secretArray: CodeArray,
+): Clues {
   if (guessArray.length !== secretArray.length) {
     return {
       wellPlacedColors: [],
@@ -26,8 +28,7 @@ function computeClues(guessArray: CodeArray, secretArray: CodeArray): Clues {
   const leftoverSecret: CodeArray = [];
   const leftoverGuess: CodeArray = [];
 
-  const secretCode = MastermindState.getSecretCode();
-  for (let index = 0; index < secretCode.length; index++) {
+  for (let index = 0; index < secretArray.length; index++) {
     if (guessArray[index] === secretArray[index]) {
       wellPlacedColors.push(guessArray[index]);
     } else {
@@ -51,5 +52,3 @@ function computeClues(guessArray: CodeArray, secretArray: CodeArray): Clues {
 
   return { wellPlacedColors, misplacedColors, notInCodeColors };
 }
-
-export { computeClues };

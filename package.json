@@ -11,7 +11,6 @@
     "commitlint": "commitlint --edit",
     "prepare": "husky",
     "start": "tsx src/main.ts",
-    "launch": "tsx src/index.ts",
     "test": "vitest"
   },
   "lint-staged": {
