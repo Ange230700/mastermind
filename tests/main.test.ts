@@ -1,7 +1,5 @@
 // tests\main.test.ts
 
-// tests/main.test.ts
-
 import type { CodeArray } from "~/src/types";
 import { computeClues } from "~/src/main";
 
