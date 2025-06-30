@@ -1,0 +1,16 @@
+%% docs\flowchart.mmd
+
+flowchart TD
+    A[Start] --> B{"Are guess and secret the same length?"}
+    B -- No --> C["Return all guesses as notInCodeColors"]
+    B -- Yes --> D["Initialize: wellPlacedColors, leftoverGuess, leftoverSecret"]
+    D --> E["For each index:\nif guess[i] == secret[i]\nadd to wellPlacedColors"]
+    E --> F["Else, add guess[i] to leftoverGuess\nand secret[i] to leftoverSecret"]
+    F --> G["For each color in leftoverGuess"]
+    G --> H{"Color in leftoverSecret?"}
+    H -- Yes --> I["Add to misplacedColors\nand remove one from leftoverSecret"]
+    H -- No --> J["Add to notInCodeColors"]
+    I --> K["Next color"]
+    J --> K
+    K --> G
+    G -- All done --> L["Return clues object"]
